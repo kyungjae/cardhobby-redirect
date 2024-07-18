@@ -21,33 +21,10 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>CardHobby 앱 다운로드</h1>
-        <p>아래 버튼을 클릭하여 CardHobby 앱을 다운로드하세요.</p>
-        <button onclick="redirectToApp()">앱 다운로드</button>
-        <p id="deviceInfo"></p>
-    </div>
-
     <script>
     function redirectToApp() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        var deviceInfo = document.getElementById('deviceInfo');
         
         var isiOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
         var isAndroid = /android/i.test(userAgent);
@@ -57,16 +34,22 @@
         var webUrl = "https://example.com/cardhobby"; // CardHobby 웹사이트 URL (예시)
 
         if (isiOS) {
-            deviceInfo.textContent = "iOS 기기가 감지되었습니다. App Store로 리디렉션합니다.";
             window.location.href = iosAppStore;
         } else if (isAndroid) {
-            deviceInfo.textContent = "Android 기기가 감지되었습니다. Play Store로 리디렉션합니다.";
             window.location.href = androidPlayStore;
         } else {
-            deviceInfo.textContent = "모바일 기기가 감지되지 않았습니다. 웹사이트로 리디렉션합니다.";
             window.location.href = webUrl;
         }
     }
+
+    // 페이지 로드 시 자동으로 리디렉션 실행
+    window.onload = redirectToApp;
     </script>
+</head>
+<body>
+    <div class="container">
+        <h1>CardHobby로 리디렉션 중입니다...</h1>
+        <p>잠시만 기다려주세요.</p>
+    </div>
 </body>
 </html>
