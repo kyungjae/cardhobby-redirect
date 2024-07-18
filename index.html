@@ -31,13 +31,14 @@
         
         var androidPlayStore = "https://play.google.com/store/apps/details?id=com.oversea.card&hl=ko";
         var iosAppStore = "https://apps.apple.com/kr/app/card-hobby/id6444756957";
-        var webUrl = "https://cardhobby.com"; // CardHobby 웹사이트
+        var webUrl = "https://cardhobby.com";
 
         if (isiOS) {
             window.location.href = iosAppStore;
         } else if (isAndroid) {
             window.location.href = androidPlayStore;
         } else {
+            // PC 웹 또는 기타 기기의 경우
             window.location.href = webUrl;
         }
     }
